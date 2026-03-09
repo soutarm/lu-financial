@@ -30,24 +30,41 @@ export function Contact() {
 
   return (
     <section ref={containerRef} className="py-32 px-8 md:px-24 bg-charcoal text-cream relative overflow-hidden" id="contact">
-      <div className="max-w-4xl mx-auto space-y-16">
-        <div className="contact-elem text-center space-y-4">
-          <div className="font-mono text-clay text-sm uppercase tracking-widest flex items-center justify-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-clay animate-pulse"></span>
-            Status: Accepting New Clients
+      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-16 items-start">
+        <div className="contact-elem space-y-8 lg:col-span-2">
+          <div className="space-y-4">
+            <div className="font-mono text-clay text-sm uppercase tracking-widest flex items-center justify-start gap-2">
+              <span className="w-2 h-2 rounded-full bg-clay animate-pulse"></span>
+              Status: Accepting New Clients
+            </div>
+            <h2 className="font-outfit text-5xl md:text-7xl font-bold tracking-tighter">
+              Contact <span className="font-drama italic font-light text-moss">Us</span>
+            </h2>
+            <p className="font-jakarta text-cream/70 text-lg pt-4 font-light">
+              Secure a confidential consultation with our senior mortgage advisors to coordinate your financial strategy.
+            </p>
           </div>
-          <h2 className="font-outfit text-5xl md:text-7xl font-bold tracking-tighter">
-            Contact <span className="font-drama italic font-light text-moss">Us</span>
-          </h2>
-          <p className="font-jakarta text-cream/70 max-w-lg mx-auto text-lg pt-4 font-light">
-            Secure a confidential consultation with our senior mortgage advisors to coordinate your financial strategy.
-          </p>
+
+          <div className="space-y-6 pt-4 font-jakarta border-t border-cream/10 mt-8">
+            <div className="flex flex-col gap-1 pt-4">
+              <span className="font-mono text-xs uppercase tracking-wider text-clay">Phone</span>
+              <a href="tel:0411111111" className="text-xl md:text-2xl hover:text-moss transition-colors">0411 111 111</a>
+            </div>
+            <div className="flex flex-col gap-1">
+              <span className="font-mono text-xs uppercase tracking-wider text-clay">Email</span>
+              <a href="mailto:luf@mrated.dev" className="text-xl md:text-2xl hover:text-moss transition-colors">luf@mrated.dev</a>
+            </div>
+            <div className="flex flex-col gap-1">
+              <span className="font-mono text-xs uppercase tracking-wider text-clay">Address</span>
+              <address className="text-xl md:text-2xl not-italic text-cream/90">101 Collins St,<br/>Melbourne VIC 3000</address>
+            </div>
+          </div>
         </div>
 
         <form 
           action="https://formsubmit.co/luf@mrated.dev" 
           method="POST" 
-          className="contact-elem space-y-8 bg-cream/5 p-8 md:p-12 rounded-[3rem] border border-cream/10 backdrop-blur-md shadow-2xl relative overflow-hidden group"
+          className="contact-elem lg:col-span-3 space-y-8 bg-cream/5 p-8 md:p-12 rounded-[3rem] border border-cream/10 backdrop-blur-md shadow-2xl relative overflow-hidden group"
         >
           {/* subtle moving light background */}
           <div className="absolute top-0 left-1/2 w-full h-full bg-gradient-to-b from-moss/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000 -translate-x-1/2 rounded-[3rem] pointer-events-none" />
