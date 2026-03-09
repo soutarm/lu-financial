@@ -47,7 +47,7 @@ const TelemetryTypewriter = () => {
   const [streamText, setStreamText] = useState('');
   const messages = [
     "Maximising growth patterns...",
-    "Analyzing boutique property yields...",
+    "Analyzing boutique mortgage yields...",
     "Rebalancing portfolio allocation...",
     "Organic wealth synthesis confirmed."
   ];

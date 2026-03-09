@@ -40,7 +40,7 @@ export function Hero() {
       <div className="relative z-10 w-full pl-8 md:pl-24 lg:pl-32 pr-8">
         <div className="flex flex-col gap-2 max-w-4xl">
           <div className="hero-line overflow-hidden mb-4 rounded-full border border-cream/20 bg-moss/60 backdrop-blur-md w-max px-6 py-2 text-cream font-mono text-sm uppercase tracking-widest">
-            A New Paradigm in Real Estate
+            A New Paradigm in Lending
           </div>
           <h1 className="hero-line font-outfit font-bold text-6xl md:text-8xl lg:text-[10rem] text-cream leading-[0.85] tracking-tighter">
             Your Future
@@ -49,7 +49,7 @@ export function Hero() {
             Wealth.
           </h1>
           <p className="hero-line font-jakarta text-cream/80 text-lg md:text-xl max-w-lg mt-12 md:ml-8 font-light">
-            We architect boutique financial portfolios with precision telemetry and organic foresight. Redefining high-end property investment as a biological science.
+            We architect boutique financial portfolios with precision telemetry and organic foresight. Redefining high-end mortgage structures as a biological science.
           </p>
         </div>
       </div>
