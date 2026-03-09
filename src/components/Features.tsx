@@ -184,11 +184,11 @@ export function Features() {
     <section ref={containerRef} className="py-32 px-8 md:px-24 bg-cream">
       <div className="mb-24 flex flex-col md:flex-row justify-between items-end gap-12">
         <h2 className="font-outfit text-5xl md:text-7xl lg:text-[6rem] text-charcoal font-semibold leading-none tracking-tight">
-          Precision <br/>
-          <span className="font-drama italic text-moss font-light">Micro-UI</span>
+          Strategic <br/>
+          <span className="font-drama italic text-moss font-light">Guidance</span>
         </h2>
         <p className="font-jakarta text-charcoal/70 max-w-sm text-lg font-light leading-relaxed mb-4">
-          Replace standard dashboards with interactive functional artifacts. Live data, tangible interactions, engineered for total operational clarity.
+          Replace uncertainty with complete financial clarity. We transform complex mortgage scenarios into straightforward, actionable insights tailored specifically to your goals.
         </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
