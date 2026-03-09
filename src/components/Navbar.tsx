@@ -9,6 +9,17 @@ export function Navbar() {
   const navRef = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState(false);
 
+  const scrollToTop = () => {
+    const scrollObj = { y: window.scrollY };
+    gsap.to(scrollObj, {
+      y: 0,
+      duration: 1.2,
+      ease: "power3.inOut", /* Power3 inOut translates to a smooth cubic-bezier curve */
+      onUpdate: () => window.scrollTo(0, scrollObj.y)
+    });
+    setIsOpen(false);
+  };
+
   useEffect(() => {
     const ctx = gsap.context(() => {
       ScrollTrigger.create({
@@ -55,9 +66,12 @@ export function Navbar() {
         </div>
 
         {/* Title: Centered on mobile, Left on desktop */}
-        <div className="font-outfit font-semibold tracking-tight text-xl absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 w-max">
+        <button 
+          onClick={scrollToTop}
+          className="font-outfit font-semibold tracking-tight text-xl absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 w-max hover:opacity-80 transition-opacity cursor-pointer flex items-center"
+        >
           Lu Financial.
-        </div>
+        </button>
 
         {/* Desktop Links */}
         <div className="hidden md:flex gap-8 font-jakarta text-sm font-medium">
