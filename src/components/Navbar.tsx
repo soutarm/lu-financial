@@ -7,6 +7,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 export function Navbar() {
   const navRef = useRef<HTMLDivElement>(null);
+  const leafRef = useRef<SVGPathElement>(null);
+  const stemRef = useRef<SVGPathElement>(null);
   const [isOpen, setIsOpen] = useState(false);
 
   const scrollToTop = () => {
@@ -20,8 +22,27 @@ export function Navbar() {
     setIsOpen(false);
   };
 
+  const handleLogoHover = () => {
+    // Replay the stick-to-leaf animation on hover
+    const tl = gsap.timeline();
+    tl.to(leafRef.current, { scale: 0, duration: 0.2, ease: "power2.in" })
+      .to(stemRef.current, { strokeDashoffset: 15, duration: 0.2, ease: "power2.in" }, "<")
+      .to(stemRef.current, { strokeDashoffset: 0, duration: 0.4, ease: "power2.out" })
+      .to(leafRef.current, { scale: 1, duration: 0.6, ease: "elastic.out(1, 0.5)" }, "-=0.1");
+  };
+
   useEffect(() => {
     const ctx = gsap.context(() => {
+      // Intro animation for the logo icon
+      const stemLength = 15; // approximate length of M2,22 to M12,12
+      gsap.set(stemRef.current, { strokeDasharray: stemLength, strokeDashoffset: stemLength });
+      gsap.set(leafRef.current, { scale: 0, transformOrigin: '12px 12px' });
+
+      const tl = gsap.timeline({ delay: 0.5 });
+      tl.to(stemRef.current, { strokeDashoffset: 0, duration: 0.6, ease: 'power2.out' })
+        .to(leafRef.current, { scale: 1, duration: 0.8, ease: 'elastic.out(1, 0.5)' }, '-=0.2');
+
+      // Scroll background transition color
       ScrollTrigger.create({
         start: 'top -50',
         onUpdate: (self) => {
@@ -68,8 +89,13 @@ export function Navbar() {
         {/* Title: Centered on mobile, Left on desktop */}
         <button 
           onClick={scrollToTop}
-          className="font-outfit font-semibold tracking-tight text-xl absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 w-max hover:opacity-80 transition-opacity cursor-pointer flex items-center"
+          onMouseEnter={handleLogoHover}
+          className="font-outfit font-semibold tracking-tight text-xl absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 w-max hover:opacity-80 transition-opacity cursor-pointer flex items-center gap-2 group"
         >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="w-5 h-5 text-moss -mt-1 transition-colors group-hover:text-clay">
+            <path ref={stemRef} d="M2 22 L 12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+            <path ref={leafRef} d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.7 8-10 10Z" fill="currentColor" stroke="none" />
+          </svg>
           Lu Financial.
         </button>
 
